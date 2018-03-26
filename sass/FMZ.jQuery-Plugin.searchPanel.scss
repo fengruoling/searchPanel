@@ -1,0 +1,203 @@
+@charset "utf-8";
+$mainColor: #49AEEB;            //主色调，包括按钮颜色、表头颜色
+$buttonHoverColor: #8ABAF0;     //按钮悬停颜色
+$borderRadius: 4px;             //统一的圆角值
+$font-family: "PingFangSC-Regular", "微软雅黑", arial, sans-serif;      //字体
+$regularBorderColor: #CCCCCC;   //正常情况下的文本框、下拉框等边框颜色
+$hoverBorderColor: #B3B3B3;     //悬停时的文本框、下拉框等边框颜色
+$warningColor: #F35A5A;         //出错时的文本框边框及字体颜色
+$inputFontColor: #646464;       //文本框、下拉框文字颜色
+$inputFontSize: 14px;           //文本框、下拉框字体大小
+$placeholderColor: #909090;     //文本框、下拉框提示文字颜色
+$liHoverBgColor: #F4F7FC;       //下拉项悬停时的背景颜色、下拉框被激活时的背景颜色
+$liHoverFontColor: #55C2A4;     //下拉项悬停时的文字颜色
+$inputPadding: 14px;            //文本框、下拉框的左右padding值
+$dropDownMaxHeight: 170px;      //下拉框最大高度
+
+@mixin border-radius($px) {
+    -moz-border-radius: $px;
+    -webkit-border-radius: $px;
+    border-radius: $px;
+};
+
+@mixin clearUlStyle() {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+.border-box {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+.fu-queryPanel {
+    position: relative;
+    font-family: $font-family;
+    color: $inputFontColor;
+    font-size: $inputFontSize;
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        td {
+            &.label {
+                text-align: right;
+                padding-right: 10px;
+                padding-bottom: 10px;
+            }
+        }
+    }
+}
+
+.fu-queryPanel-itemSpan {
+    margin: 0px 30px 10px 0px;
+    display: inline-block;
+    height: 34px;
+    line-height: 34px;
+    
+    &.lastItem {
+        margin-right: 0px;
+    }
+    
+    label {
+        margin-right: 10px;
+    }
+    
+    .joinStr {
+        margin: 0px 5px;
+    }
+}
+
+.fu-baseInput {
+    height: 34px;
+    width: 150px;
+    border: 1px solid $regularBorderColor;
+    @include border-radius($borderRadius);
+    outline: none;
+    padding: 0px $inputPadding;
+    color: $inputFontColor;
+    background: white;
+    
+    &::-webkit-input-placeholder {  //WebKit browsers
+        color: $placeholderColor;
+    }
+    &:-moz-placeholder {    //Mozilla Firefox 4 to 18
+        color: $placeholderColor;
+    }
+    &::-moz-placeholder {   //Mozilla Firefox 19+ 
+        color: $placeholderColor;
+    }
+    &:-ms-input-placeholder {   //Internet Explorer 10+ 
+        color: $placeholderColor;
+    }
+    &:hover, &:focus {
+        border-color: $hoverBorderColor;
+    }
+}
+
+.fu-dropdown {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    
+    i {
+        position: absolute;
+        right: 0px;
+        padding: 10px $inputPadding;
+    }
+    
+    &.active {
+        input {
+            background: $liHoverBgColor;
+        }
+    }
+    
+    input {
+        padding-right: 37px;
+        cursor: pointer;
+        
+        &.multi {
+            &.start ~ .fu-dropdown-option {
+                margin: 0px -5px 0px 0px;
+            }
+            &.end ~ .fu-dropdown-option {
+                margin: 0px 0px 0px -5px;
+            }
+        }
+    }
+    
+    .fu-dropdown-option {
+        @include clearUlStyle;
+        display: none;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        top: 34px;
+        line-height: 34px;
+        @include border-radius($borderRadius);
+        border: 1px solid $regularBorderColor;
+        background: white;
+        max-height: $dropDownMaxHeight;
+        z-index: 1;
+        
+        &.toggle {
+            display: block;
+        }
+        
+        li {
+            padding: 0px $inputPadding;
+            
+            &:hover {
+                background-color: $liHoverBgColor;
+                color: $liHoverFontColor;
+            }
+            
+            &:first-child {
+                @include border-radius($borderRadius $borderRadius 0px 0px);
+            }
+            
+            &:last-child {
+                @include border-radius(0px 0px $borderRadius $borderRadius);
+            }
+        }
+    }
+}
+
+.buttonSpan {
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    float: right;
+    margin-left: 10px;
+    
+    button {
+        width: 76px;
+        height: 34px;
+        background-color: $mainColor;
+        color: white;
+        @include border-radius($borderRadius);
+        border: none;
+        cursor: pointer;
+        outline: none;
+        
+        &:first-child {
+            margin-right: 10px;
+        }
+        &:hover {
+            background-color: $buttonHoverColor;
+        }
+        
+        i {
+            margin-right: 5px;
+        }
+    }
+}
