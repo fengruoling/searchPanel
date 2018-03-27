@@ -20,7 +20,13 @@
 			var sort = option.sort || "auto";
 			var widgetType, itemSpan;
 			var html;
-			var buttonSpan = '<span class="buttonSpan"><button name="query"><i class="fa fa-search"></i>查询</button><button name="reset"><i class="fa fa-trash-o"></i>清除</button></span>';
+			if(option.buttonPos && option.buttonPos == "right") {
+				var buttonSpan = '<span class="buttonSpan right"><button name="query"><i class="fa fa-search"></i>查询</button><button name="reset"><i class="fa fa-trash-o"></i>清除</button></span>';
+			}
+			else {
+				var buttonSpan = '<span class="buttonSpan"><button name="query"><i class="fa fa-search"></i>查询</button><button name="reset"><i class="fa fa-trash-o"></i>清除</button></span>';
+			}
+
 			if(sort == "auto") {
 				for(var i = 0; i < option.data.length; i++) {
 					itemSpan = document.createElement('span');

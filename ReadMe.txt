@@ -23,6 +23,7 @@ var option = {
 	padding: "",				//用于设置查询面板的padding值
 	sort: "auto|align",			//选填：auto或align，用于控制查询面板查询数据项的排列方式，auto为默认的排列方式，即一行排不下时就换行，align为表格式的排列方式，会像表格一样上下对齐
 	column: Number,				//当sort方式为align时，需定义此参数，用于控制一行显示的查询指标个数，不填时默认值为3
+	buttonPos: "",				//定义查询和清除按钮的位置，除了此参数为“right”时，按钮定位在右侧，其余情况均跟随查询指标定位在左侧
 	queryFunction: Function		//用于定义查询时需执行的事件
 };
 

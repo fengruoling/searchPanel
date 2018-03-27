@@ -32,7 +32,8 @@
 .fu-dropdown .fu-dropdown-option li:first-child { -moz-border-radius: 4px 4px 0px 0px; -webkit-border-radius: 4px 4px 0px 0px; border-radius: 4px 4px 0px 0px; }
 .fu-dropdown .fu-dropdown-option li:last-child { -moz-border-radius: 0px 0px 4px 4px; -webkit-border-radius: 0px 0px 4px 4px; border-radius: 0px 0px 4px 4px; }
 
-.buttonSpan { display: block; height: 34px; line-height: 34px; float: right; margin-left: 10px; }
+.buttonSpan { display: inline-block; height: 34px; line-height: 34px; margin-left: 30px; }
+.buttonSpan.right { float: right; }
 .buttonSpan button { width: 76px; height: 34px; background-color: #49AEEB; color: white; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; border: none; cursor: pointer; outline: none; }
 .buttonSpan button:first-child { margin-right: 10px; }
 .buttonSpan button:hover { background-color: #8ABAF0; }
