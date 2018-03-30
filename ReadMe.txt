@@ -28,8 +28,8 @@ var option = {
 };
 
 查询面板函数调用说明：
-dom.createQueryPanel(option);	//在dom容器中按option设置的参数创建查询面板
+$(dom).createQueryPanel(option);	//在dom容器中按option设置的参数创建查询面板
 
-dom.destroyQueryPanel(index);	//在dom容器中销毁查询面板，index可不填，不填时默认销毁dom中所包含的所有查询面板，当dom中包含好几个查询面板时，可设置index值（从0开始）指定销毁某个查询面板
+$(dom).destroyQueryPanel(index);	//在dom容器中销毁查询面板，index可不填，不填时默认销毁dom中所包含的所有查询面板，当dom中包含好几个查询面板时，可设置index值（从0开始）指定销毁某个查询面板
 
-dom.getQueryData(index);		//在dom容器中获取查询参数，index可不填，不填时默认获取dom中所包含的所有查询面板的查询参数，当dom中包含好几个查询面板时，可设置index值（从0开始）指定获取某个查询面板的查询参数
+$(dom).getQueryData(index);		//在dom容器中获取查询参数，index可不填，不填时默认获取dom中所包含的所有查询面板的查询参数，当dom中包含好几个查询面板时，可设置index值（从0开始）指定获取某个查询面板的查询参数
